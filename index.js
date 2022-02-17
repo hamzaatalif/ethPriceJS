@@ -1,12 +1,12 @@
 const express = require("express");
-const axios = require('axios');
+var cors = require('cors')
 const CoinMarketCap = require('coinmarketcap-api')
 const apiKey = 'f94ec3ee-a2d5-4668-8239-c20015a6e924'
 const client = new CoinMarketCap(apiKey)
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// client.getQuotes({symbol: ['ETH'], convert: 'USD'}).then(console.log).catch(console.error)
+app.use(cors())
 
 app.get("/",async (req,res)=>{
     try {
